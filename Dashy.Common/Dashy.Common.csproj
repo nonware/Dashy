@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Orleans.Core" Version="7.1.1" />
+    <PackageReference Include="RavenDB.Client" Version="5.4.103" />
   </ItemGroup>
 
 </Project>
