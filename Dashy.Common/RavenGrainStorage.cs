@@ -1,8 +1,10 @@
-﻿using Orleans;
+﻿using Microsoft.Extensions.Logging;
+using Orleans;
 using Orleans.Runtime;
 using Orleans.Storage;
 using Raven.Client.Documents;
 using Raven.Client.Exceptions;
+using Serilog;
 
 namespace Dashy.Common
 {
@@ -28,9 +30,9 @@ namespace Dashy.Common
 
                 ResetGrainState(grainState);
             }
-            catch(Exception ex)
+            catch (Exception e)
             {
-                //TODO Log
+                Log.Error("Error occurred clearing state {StateName} for Grain {GrainId}", e);
                 throw;
             }
         }
@@ -54,7 +56,7 @@ namespace Dashy.Common
             }
             catch (Exception e)
             {
-                //TODO Add log here when Serilog added
+                Log.Error("Error occurred reading state {StateName} for Grain {GrainId}", e);
             }
         }
 
@@ -70,12 +72,12 @@ namespace Dashy.Common
             }
             catch (ConcurrencyException ce)
             {
-                //TODO Add log here when Serilog added
+                Log.Error("Concurrency error occurred writing state {StateName} for Grain {GrainId}", ce);
                 throw new InconsistentStateException(ce.ActualChangeVector, ce.ExpectedChangeVector, ce);
             }
             catch (Exception e)
             {
-
+                Log.Error("Error occurred writing state {StateName} for Grain {GrainId}", e);
                 throw;
             }
         }
