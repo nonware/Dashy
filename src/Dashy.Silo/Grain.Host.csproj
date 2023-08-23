@@ -11,10 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Grains\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\Shared.GrainContracts\Shared.GrainContracts.csproj" />
     <ProjectReference Include="..\Shared.Silo\Shared.Silo.csproj" />
   </ItemGroup>
 

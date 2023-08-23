@@ -7,16 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.OpenApi" Version="1.6.6" />
     <PackageReference Include="Microsoft.Orleans.Client" Version="7.2.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Shared.GrainContracts\Shared.GrainContracts.csproj" />
     <ProjectReference Include="..\Shared.Silo\Shared.Silo.csproj" />
   </ItemGroup>
 
