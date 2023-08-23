@@ -45,10 +45,12 @@ namespace Api.Host.Controllers
         }
 
         // DELETE api/<TileController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{tileId}")]
+        public async Task<IActionResult> Delete(string tileId)
         {
-            throw new NotImplementedException("Need a ClearStateAsync on TileGrain");
+            var grain = ClusterClient.GetGrainWithId<ITileGrain>(tileId);
+            await grain.ClearStateAsync();
+            return Ok();
         }
     }
 }

@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{6E1F10
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Silo", "src\Shared.Silo\Shared.Silo.csproj", "{BDB01480-A0B8-4580-9DC9-66D262F07498}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "silo_runner", "silo_runner", "{387A8736-7653-4842-ABE9-1D05965F25CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

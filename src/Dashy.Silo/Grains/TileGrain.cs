@@ -23,6 +23,11 @@ namespace Grain.Host.Grains
         {
             return Task.FromResult(_state.State);
         }
+
+        public Task ClearStateAsync()
+        {
+            return Task.FromResult(_state.ClearStateAsync());
+        }
         public IGrainContext GrainContext { get; }
     }
 }

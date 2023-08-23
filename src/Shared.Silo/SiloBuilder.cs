@@ -23,16 +23,21 @@ public static class SiloBuilder
     public static WebApplication BuildSilo<T>(string[] args, Action<WebApplicationBuilder, T, RuntimeConfig>? webAppBuilder = null) where T : SiloConfig
     {
         var host = WebApplication.CreateBuilder(args);
-        
+
         host.Host.UseSerilog();
-        
+
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console()
             .WriteTo.Seq("http://localhost:5341")
             .CreateLogger();
 
         #region Cluster Port Setup
-        _portOffset = 0; //TODO Pull in from args as apart of script silo runner
+
+        host.Host.ConfigureServices((context, _) =>
+        {
+            int instanceId = context.Configuration.GetValue<int>("InstanceId");
+            _portOffset = instanceId;
+        });
 
         var config = host.Configuration.GetSection(nameof(SiloConfig)).Get<T>()!;
         var ports = new RuntimeConfig
@@ -71,7 +76,7 @@ public static class SiloBuilder
                 options.Invariant = "System.Data.SqlClient";
                 options.ConnectionString = config.ClusteringConnectionString;
             });
-            
+
             var advertisingIP = IPAddress.Parse(host.Configuration["AdvertiseIP"] ?? IPAddress.Loopback.ToString());
             silo.ConfigureEndpoints(
                 advertisingIP,

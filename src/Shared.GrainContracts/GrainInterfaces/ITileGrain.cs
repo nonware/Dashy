@@ -4,5 +4,6 @@
     {
         Task<TileState> GetStateAsync();
         Task SetStateAsync(TileState state);
+        Task ClearStateAsync();
     }
 }
