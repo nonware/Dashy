@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Orleans.Configuration;
 using Serilog;
+using Serilog.Events;
 using Shared.Silo.Configuration;
 using System.Net;
 using static Shared.Silo.Configuration.PortConstants;
@@ -29,6 +30,9 @@ public static class SiloBuilder
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console()
             .WriteTo.Seq("http://localhost:5341")
+            .MinimumLevel.Debug()
+            .MinimumLevel.Override("Orleans.Runtime", LogEventLevel.Warning)
+            .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
             .CreateLogger();
 
         #region Cluster Port Setup
