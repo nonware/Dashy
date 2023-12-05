@@ -3,10 +3,10 @@
     "Api.Host": {
       "commandName": "Project",
       "launchBrowser": true,
+      "applicationUrl": "https://localhost:60879;http://localhost:60880",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:60879;http://localhost:60880"
+      }
     }
   }
 }
