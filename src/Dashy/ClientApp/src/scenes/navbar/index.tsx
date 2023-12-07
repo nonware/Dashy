@@ -13,14 +13,14 @@ const Navbar = (props: Props) => {
     <FlexBetween mb="0.25rem" p="0.5rem 0rem" color={palette.grey[300]}>
       {/* LEFT */}
       <FlexBetween gap="0.75rem">
-        <GrainIcon sx={{ fontSize: "28px", color: palette.primary[500] }} />
-        <Typography variant="h4" fontSize="16px">
+        <GrainIcon sx={{ fontSize: "42px", color: palette.primary[500] }} />
+        <Typography variant="h4" fontSize="20px">
           Hive
         </Typography>
       </FlexBetween>
       {/* RIGHT */}
       <FlexBetween gap="2rem">
-        <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
+        <Box sx={{ "&:hover": { color: palette.primary[400] } }}>
           <Link
             to="/"
             onClick={() => setSelected("dashboard")}
@@ -32,7 +32,7 @@ const Navbar = (props: Props) => {
             dashboard
           </Link>
         </Box>
-        <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
+        <Box sx={{ "&:hover": { color: palette.primary[400] } }}>
           <Link
             to="/"
             onClick={() => setSelected("map")}
@@ -44,7 +44,7 @@ const Navbar = (props: Props) => {
             map
           </Link>
         </Box>
-        <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
+        <Box sx={{ "&:hover": { color: palette.primary[400] } }}>
           <Link
             to="/"
             onClick={() => setSelected("intelligence")}
@@ -57,7 +57,7 @@ const Navbar = (props: Props) => {
             intelligence
           </Link>
         </Box>
-        <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
+        <Box sx={{ "&:hover": { color: palette.primary[400] } }}>
           <Link
             to="/"
             onClick={() => setSelected("nodes")}

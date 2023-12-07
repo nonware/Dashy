@@ -1,24 +1,23 @@
 import { Box, useTheme, useMediaQuery } from "@mui/material";
+import DashboardTile from "./DashboardTile";
 type Props = {};
 
 const gridTemplateLargeScreens = `
     "a b c"
     "a b c"
     "a b c"
-    "a b f"
     "d e f"
     "d e f"
-    "d h i"
+    "d e f"
     "g h i"
-    "g h j"
-    "g h j"
+    "g h i"
+    "g h i"
 `;
 
 const gridTemplateSmallScreens = `
     "a"
     "a"
     "a"
-    "a"
     "b"
     "b"
     "b"
@@ -27,23 +26,22 @@ const gridTemplateSmallScreens = `
     "c"
     "d"
     "d"
+    "d"
     "e"
     "e"
+    "e"
     "f"
     "f"
     "f"
     "g"
     "g"
     "g"
-    "h"
-    "h"
     "h"
     "h"
     "h"
     "i"
     "i"
-    "j"
-    "j"
+    "i"
 `;
 
 const Dashboard = (props: Props) => {
@@ -69,22 +67,15 @@ const Dashboard = (props: Props) => {
             }
       }
     >
-      <Box bgcolor={palette.tertiary[500]} gridArea="a">
-        1x4
-      </Box>
-      <Box bgcolor={palette.tertiary[500]} gridArea="b">
-        1x4
-      </Box>
-      <Box bgcolor={palette.tertiary[500]} gridArea="c">
-        1x3
-      </Box>
-      <Box bgcolor={palette.tertiary[500]} gridArea="d"></Box>
-      <Box bgcolor={palette.tertiary[500]} gridArea="e"></Box>
-      <Box bgcolor={palette.tertiary[500]} gridArea="f"></Box>
-      <Box bgcolor={palette.tertiary[500]} gridArea="g"></Box>
-      <Box bgcolor={palette.tertiary[500]} gridArea="h"></Box>
-      <Box bgcolor={palette.tertiary[500]} gridArea="i"></Box>
-      <Box bgcolor={palette.tertiary[500]} gridArea="j"></Box>
+      <DashboardTile gridArea="a"></DashboardTile>
+      <DashboardTile gridArea="b"></DashboardTile>
+      <DashboardTile gridArea="c"></DashboardTile>
+      <DashboardTile gridArea="d"></DashboardTile>
+      <DashboardTile gridArea="e"></DashboardTile>
+      <DashboardTile gridArea="f"></DashboardTile>
+      <DashboardTile gridArea="g"></DashboardTile>
+      <DashboardTile gridArea="h"></DashboardTile>
+      <DashboardTile gridArea="i"></DashboardTile>
     </Box>
   );
 };
