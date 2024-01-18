@@ -9,7 +9,6 @@ using Shared.Silo.Configuration;
 using System.Net;
 using static Shared.Silo.Configuration.PortConstants;
 namespace Shared.Silo;
-public interface ISiloBuilder { }
 public static class SiloBuilder
 {
     #region Private
